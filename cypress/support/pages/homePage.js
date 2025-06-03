@@ -8,6 +8,7 @@ export class HomePage extends BasePage {
         this.logo = 'a[id="nava"]'
         this.loginBtn = '*[id="login2"]'
         this.catSection = '*[id="cat"]'
+        this.popLogin = '[id="logInModalLabel"]'
         
     }
     openWeb(){
@@ -17,8 +18,14 @@ export class HomePage extends BasePage {
         this.isElementVisible(this.logo)
         this.isElementVisible(this.loginBtn)
         this.isElementVisible(this.catSection)
+        
     }
     verifyCategories(){
         cy.get(this.catSection).invoke('text').should('eq',"CATEGORIES")
     }
+    clickLoginThenVerify(){
+        this.clickElement(this.loginBtn)
+        cy.get(this.popLogin).should("be.visible")
+    }
+    
 }
