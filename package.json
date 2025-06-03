@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "cypress": "^14.4.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "mocha": "^11.5.0"
+  },
+  "dependencies": {
+    "events": "^3.3.0"
+  }
+}
