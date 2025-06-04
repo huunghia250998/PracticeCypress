@@ -6,15 +6,12 @@
     "start-server-and-test": "^1.15.4"
   },
   "dependencies": {
+    "build": "^0.1.4",
     "events": "^3.3.0"
   },
-  
   "scripts": {
-    "start": "my-server -p 3030",
-    "cy:run": "cypress run",
-    "test": "start-server-and-test start https://www.demoblaze.com/ cy:run"
-  }
-
-
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+}
 
 }
