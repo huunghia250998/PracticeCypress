@@ -9,10 +9,8 @@
     "events": "^3.3.0"
   },
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "cypress-run": "cypress run"
-    
+    "test": "cypress verify",
+    "cyrun": "cypress run",
+    "open": "cypress open"
   }
 }
