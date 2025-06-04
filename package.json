@@ -2,9 +2,17 @@
   "devDependencies": {
     "cypress": "^14.4.0",
     "cypress-mochawesome-reporter": "^3.8.2",
-    "mocha": "^11.5.0"
+    "mocha": "^11.5.0",
+    "start-server-and-test": "^1.15.4"
   },
   "dependencies": {
     "events": "^3.3.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "cypress-run": "cypress run"
+    
   }
 }
