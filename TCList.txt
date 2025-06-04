@@ -1,0 +1,108 @@
+Feature: Home Page Display
+
+  Scenario: User opens the homepage
+    Given the user navigates to the Demoblaze homepage
+    Then the homepage should display the product list, categories, and navbar
+
+  Scenario: Categories are listed correctly
+    When the user views the left-side category menu
+    Then the categories should include "Phones", "Laptops", and "Monitors"
+
+  Scenario: Product cards load on homepage
+    Then each product card should display an image, title, and price
+--------------------------------------------------------------------------
+Feature: Product Details
+
+  Scenario: View product detail page
+    Given the user is on the homepage
+    When the user clicks on a product
+    Then the product detail page should display product name, price, and description
+
+  Scenario: Navigate back from product detail
+    When the user clicks the home link or presses the back button
+    Then the homepage should display the product list
+--------------------------------------------------------------------------
+Feature: Shopping Cart
+
+  Scenario: Add a product to the cart
+    Given the user is on a product page
+    When the user clicks "Add to Cart"
+    Then a confirmation alert should appear
+
+  Scenario: View cart with added items
+    Given a product is added to the cart
+    When the user clicks on "Cart"
+    Then the cart should display the product with correct details
+
+  Scenario: Remove a product from the cart
+    Given a product is in the cart
+    When the user clicks "Delete"
+    Then the product should be removed from the cart
+
+  Scenario: Cart total calculation
+    Given multiple products are added to the cart
+    Then the total price should equal the sum of all product prices
+--------------------------------------------------------------------------
+Feature: User Sign-Up and Login
+
+  Scenario: Register a new user
+    When the user clicks "Sign up" and enters valid credentials
+    Then the user should see a confirmation alert
+
+  Scenario: Attempt duplicate registration
+    Given a user is already registered
+    When the user tries to register again with the same credentials
+    Then an error alert should be displayed
+
+  Scenario: Log in with valid credentials
+    Given a registered user
+    When the user logs in with valid username and password
+    Then the user should see "Welcome [username]"
+
+  Scenario: Log in with invalid credentials
+    When the user enters incorrect username or password
+    Then an error alert should be displayed
+
+  Scenario: Log out
+    Given a logged-in user
+    When the user clicks "Log out"
+    Then the user should be logged out and see the login option again
+--------------------------------------------------------------------------
+Feature: Purchase Order
+
+  Scenario: Successfully place an order
+    Given the user has products in the cart
+    When the user clicks "Place Order" and fills all required fields
+    Then the order should be submitted and confirmation with ID shown
+
+  Scenario: Attempt to purchase with missing form fields
+    When the user clicks "Place Order" with empty fields
+    Then an error alert should be shown
+--------------------------------------------------------------------------
+Feature: UI Elements
+
+  Scenario: Check navigation bar elements
+    Then the navbar should display "Home", "Contact", "About us", "Cart", "Log in", and "Sign up"
+
+  Scenario: Responsive layout
+    When the user resizes the browser to mobile size
+    Then the layout should adjust to fit small screens
+
+  Scenario: Broken images and links
+    Then all images should be visible and links should be clickable
+
+--------------------------------------------------------------------------
+Feature: Negative Scenarios
+
+  Scenario: Add to cart without login
+    When the user adds a product to cart without logging in
+    Then the product should still be added
+
+  Scenario: Submit empty login form
+    When the user tries to log in with empty fields
+    Then an alert should be shown
+
+  Scenario: Invalid email during sign-up
+    When the user enters an invalid email format
+    Then the system should show a validation error
+
