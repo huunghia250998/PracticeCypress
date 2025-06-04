@@ -10,10 +10,8 @@
     "events": "^3.3.0"
   },
   "scripts": {
-  "test": "cypress run",
-  "cypress:open": "cypress opennn"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
 }
-
-
 
 }
