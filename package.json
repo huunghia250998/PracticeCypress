@@ -2,6 +2,7 @@
   "devDependencies": {
     "cypress": "^14.4.0",
     "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-xpath": "^2.0.1",
     "mocha": "^11.5.0",
     "start-server-and-test": "^1.15.4"
   },
@@ -12,6 +13,5 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
-}
-
+  }
 }

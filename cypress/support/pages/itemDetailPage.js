@@ -8,6 +8,7 @@ export class ItemDetailPage extends BasePage {
         this.description = '*[class="description description-tabs"]'
         this.btnAddCart = 'a[class="btn btn-success btn-lg"]'
         this.logo = 'a[id="nava"]'
+        this.cartBtn = '*[id="cartur"]'
         
     }
     verifyDetailDisplay(){
@@ -18,6 +19,31 @@ export class ItemDetailPage extends BasePage {
     }
     clickOnLogo(){
         cy.get(this.logo).click()
+    }
+    clickAddCart(){
+        cy.get(this.btnAddCart).click()
+        cy.on('window:confirm',(str)=>{
+            expect(str).to.equal('Product added')
+        })
+    }
+    clickAddCartTwice(){
+        cy.get(this.btnAddCart).click()
+        cy.on('window:confirm',(str)=>{
+            expect(str).to.equal('Product added')
+        })
+        cy.wait(1000)
+        cy.get(this.btnAddCart).click()
+        cy.on('window:confirm',(str)=>{
+            expect(str).to.equal('Product added')
+        })
+    }
+    verifyPopupAddedSuccess(){
+        cy.on('window:confirm',(str)=>{
+            expect(str).to.equal('Product added')
+        })
+    }
+    clickCartNavBar(){
+        cy.get(this.cartBtn).click()
     }
     
 }

@@ -1,4 +1,6 @@
 import BasePage from "../../src/base/basePage";
+require('cypress-xpath');
+
 
 
 export class HomePage extends BasePage {
@@ -45,6 +47,11 @@ export class HomePage extends BasePage {
         cy.get(this.cardText).should("have.length.at.least",5)
     }
     clickOn1stItem(){
+        cy.get(this.firstItem).invoke("text").then((name)=>{
+            Cypress.env('nameProd',name)
+        })
         cy.get(this.firstItem).click()
+       
     }
+
 }
