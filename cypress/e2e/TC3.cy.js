@@ -5,7 +5,7 @@ describe('Verify product list loads	', () => {
   it('Verify product list loads	', () => {
     cy.visit('https://www.demoblaze.com/')
     homePage.verifyHomePageDisplayed()
-    //homePage.clickLoginThenVerify()
+    homePage.clickLoginThenVerify()
     homePage.verifyCategories()
     homePage.verifyProdListDisplayed()
   });

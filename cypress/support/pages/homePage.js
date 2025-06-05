@@ -10,7 +10,11 @@ export class HomePage extends BasePage {
         this.catSection = '*[id="cat"]'
         this.itemsC = '*[id="itemc"]'
         this.popLogin = '[id="logInModalLabel"]'
+        this.closeBtnDialog = '#logInModal  button[class="close"]'
         this.cardImg = '*[class="card-img-top img-fluid"]'
+        this.cardTitle = '*[class="card-title"]'
+        this.cardText = '*[class="card-text"]'
+        this.firstItem = '#tbodyid > div:nth-child(1) > div > div > h4 > a'
         
     }
     openWeb(){
@@ -32,8 +36,15 @@ export class HomePage extends BasePage {
     clickLoginThenVerify(){
         this.clickElement(this.loginBtn)
         cy.get(this.popLogin).should("be.visible")
+        //cy.wait(2000)
+        cy.get(this.closeBtnDialog).should('be.visible').wait(500).click()
     }
     verifyProdListDisplayed(){
         cy.get(this.cardImg).should("have.length.at.least",5)
+        cy.get(this.cardTitle).should("have.length.at.least",5)
+        cy.get(this.cardText).should("have.length.at.least",5)
+    }
+    clickOn1stItem(){
+        cy.get(this.firstItem).click()
     }
 }
