@@ -34,8 +34,7 @@ describe('Shopping Cart', () => {
     detailPage.clickAddCartTwice()
     //detailPage.verifyPopupAddedSuccess()
     detailPage.clickCartNavBar()
-    cy.wait(5000)
-    cartPage.showText()
+    cartPage.compareTotal()
   });
 
 });
