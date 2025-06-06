@@ -7,7 +7,10 @@ const homePage = new HomePage()
 const cartPage = new CartPage()
 describe('Shopping Cart', () => {
   beforeEach(() => {
-        cy.visit('https://www.demoblaze.com/')
+    cy.clearCookies();
+    cy.clearLocalStorage();
+    cy.visit('https://www.demoblaze.com/index.html');
+   
   });
   it('Add a product to the cart', () => {
     homePage.clickOn1stItem()
@@ -32,7 +35,7 @@ describe('Shopping Cart', () => {
   it('Cart total calculation', () => {
     homePage.clickOn1stItem()
     detailPage.clickAddCartTwice()
-    //detailPage.verifyPopupAddedSuccess()
+    detailPage.verifyPopupAddedSuccess()
     detailPage.clickCartNavBar()
     cartPage.compareTotal()
   });

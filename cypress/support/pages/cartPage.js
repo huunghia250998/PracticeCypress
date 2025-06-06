@@ -12,11 +12,14 @@ export class CartPage extends BasePage {
         cy.get(this.colTitleItem).contains(Cypress.env('nameProd')).should('be.visible')
     }
     deleteItemAdded(){
+        //cy.wait(3000)
         cy.get(this.colTitleItem).contains("Delete").should('be.visible').click()
+        cy.xpath(this.allPrice).should('not.exist')
     }
     compareTotal(){
-        //cy.wait(3000)
-        cy.xpath(this.allPrice).last().should('be.visible').then(($elements) => {
+        cy.wait(3000)
+        //cy.xpath(this.allPrice).last().should('be.visible')
+        cy.xpath(this.allPrice).should('be.visible').then(($elements) => {
         const priceArray = $elements.map((index, el) => parseFloat(Cypress.$(el).text().trim())).get();
         //$elements.map((index, el) => {...}).get();
         //$elements.map(...) áp dụng hàm callback cho từng phần tử trong $elements.

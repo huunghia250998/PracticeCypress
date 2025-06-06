@@ -31,7 +31,7 @@ export class ItemDetailPage extends BasePage {
         cy.on('window:confirm',(str)=>{
             expect(str).to.equal('Product added')
         })
-        cy.wait(1000)
+        //cy.wait(3000)
         cy.get(this.btnAddCart).click()
         cy.on('window:confirm',(str)=>{
             expect(str).to.equal('Product added')
